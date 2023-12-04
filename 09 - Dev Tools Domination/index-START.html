@@ -1,46 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Console Tricks!</title>
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
-
-  <p onClick="makeGreen()">×BREAK×DOWN×</p>
-
-  <script>
-    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
-
-    function makeGreen() {
+  <head>
+    <meta charset="UTF-8">
+    <title>Console Tricks!</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    
+    <script>
+      console.time('Running this code')
+      const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+      
       const p = document.querySelector('p');
-      p.style.color = '#BADA55';
-      p.style.fontSize = '50px';
-    }
-
-    // Regular
-
-    // Interpolated
-
-    // Styled
-
-    // warning!
-
-    // Error :|
-
-    // Info
-
-    // Testing
-
-    // clearing
-
-    // Viewing DOM Elements
-
+      function makeGreen() {
+        p.style.color = '#BADA55';
+        p.style.fontSize = '50px';
+      }
+      
+      // Regular
+      console.log('hello')
+      // Interpolated
+      console.log('Hello I am a %s string','✅')
+      // Styled
+      console.log('%c I am some great text','font-size:30px;color:black; background:#106050;')
+      // warning!
+      console.warn("It's a warning")
+      // Error :|
+      console.error('It is an error')
+      // Info
+      console.info('This is an info')
+      // Testing
+      console.assert(1===2,'That is wrong')
+      console.assert(1===1,'That is wrong')
+      console.assert(p.classList.contains('ouch'),'That is wrong')
+      // clearing
+      //console.clear()
+      // Viewing DOM Elements
+    console.log(p)
+    console.dir(p)
     // Grouping together
-
+    dogs.forEach(dog=>{
+      console.groupCollapsed(dog.name)
+      // console.group(dog.name)
+      console.log(`This is ${dog.name} `)
+      console.log(`${dog.name} is ${dog.age} years old `)
+      console.groupEnd(dog.name)
+    })
     // counting
-
+    console.count('naik')
+    console.count('naik')
+    console.count('naik')
+    console.count('naik')
     // timing
+    console.timeEnd('Running this code')
+
+
+      console.time('Fetching the data')
+      fetch('https://api.github.com/users/wesbos')
+      .then((response)=>{
+        return response.json()
+      }).then((data)=>{
+        console.log(data)
+        console.timeEnd('Fetching the data')
+      })
 
   </script>
 </body>
