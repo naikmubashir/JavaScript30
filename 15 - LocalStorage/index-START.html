@@ -58,7 +58,7 @@
     const el= e.target;
     const i=el.dataset.index;
     items[i].done=!items[i].done;
-    localStorage.setItem('item',JSON.stringify(items))
+    localStorage.setItem('items',JSON.stringify(items))
     populateList(items,itemsList)
   }
   addItems.addEventListener('submit',addItem)
