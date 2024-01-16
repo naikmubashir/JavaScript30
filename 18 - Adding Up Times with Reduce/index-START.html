@@ -183,6 +183,31 @@
     </li>
   </ul>
 <script>
+  const items=document.querySelectorAll('[data-time]');
+  const arrFromNodeList=Array.from(items);
+  
+  const totalSeconds= arrFromNodeList.map(item=>{
+    return item.dataset.time
+    //to convert it into number
+    //  totalTime= item.dataset.time *1;
+
+  }).map(item=>{
+    const [mins,secs]=item.split(':').map(digit=>
+    digit=digit *1);
+    // console.log(mins,secs)
+    return mins*60+secs;
+  }).reduce((total,vidSecs)=>total+vidSecs);
+
+  let secondsLeft=totalSeconds;
+
+  const hours=Math.floor(totalSeconds/3600);
+  secondsLeft=secondsLeft%3600;
+
+  const mins=Math.floor(secondsLeft/60);
+  secondsLeft=secondsLeft%60;
+
+  console.log(hours,mins,secondsLeft)
+
 </script>
 </body>
 </html>
